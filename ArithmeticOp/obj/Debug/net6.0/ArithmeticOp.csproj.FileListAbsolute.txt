@@ -1,0 +1,11 @@
+D:\Calculator\ArithmeticOp\bin\Debug\net6.0\ArithmeticOp.deps.json
+D:\Calculator\ArithmeticOp\bin\Debug\net6.0\ArithmeticOp.dll
+D:\Calculator\ArithmeticOp\bin\Debug\net6.0\ArithmeticOp.pdb
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.AssemblyInfoInputs.cache
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.AssemblyInfo.cs
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.csproj.CoreCompileInputs.cache
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.dll
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\refint\ArithmeticOp.dll
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ArithmeticOp.pdb
+D:\Calculator\ArithmeticOp\obj\Debug\net6.0\ref\ArithmeticOp.dll

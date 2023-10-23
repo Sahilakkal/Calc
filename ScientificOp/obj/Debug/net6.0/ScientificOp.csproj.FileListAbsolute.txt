@@ -1,0 +1,15 @@
+D:\Calculator\ScientificOp\bin\Debug\net6.0\ScientificOp.deps.json
+D:\Calculator\ScientificOp\bin\Debug\net6.0\ScientificOp.dll
+D:\Calculator\ScientificOp\bin\Debug\net6.0\ScientificOp.pdb
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.AssemblyInfoInputs.cache
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.AssemblyInfo.cs
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.csproj.CoreCompileInputs.cache
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.dll
+D:\Calculator\ScientificOp\obj\Debug\net6.0\refint\ScientificOp.dll
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.pdb
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ref\ScientificOp.dll
+D:\Calculator\ScientificOp\bin\Debug\net6.0\ArithmeticOp.dll
+D:\Calculator\ScientificOp\bin\Debug\net6.0\ArithmeticOp.pdb
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.csproj.AssemblyReference.cache
+D:\Calculator\ScientificOp\obj\Debug\net6.0\ScientificOp.csproj.CopyComplete

@@ -1,0 +1,82 @@
+-----------------------------------------------------------------------------------------  6 Oct 2023---------------------------------------------------------------------------
+
+Assignment-----------> Learn  about the GMT Time Zone (+12 -12 time zone exist)  , bitwise operator program , Pointers, functions and Loops.
+ 
+
+byte -> char -> short -> int -> long -> float -> double -> decimal    (Implicit Conversion) 
+
+learned about the Operators in C# (Learn from Official Doc of Microsoft C# or from W3 schools)
+
+if-else , ternary operator, switch case, 
+
+
+----------------------------------------------------------------------------------------- 9 Oct 2023---------------------------------------------------------------------------
+
+
+Assignment----------->  ref vs out , multiple arguments in main function
+
+learned about pointers class struct functions , subroutines 
+
+----------------------------------------------------------------------------------------- 10 Oct 2023---------------------------------------------------------------------------
+
+vinod.chaula@vertexinfosoft.com
+
+learned about nullable types ??= operator
+
+----------------------------------------------------------------------------------------- 16 Oct 2023---------------------------------------------------------------------------
+-Learned about interfaces and learn that we can implement interfaces in multiple class such that wr can use func with same name with different behaviour
+
+and we can create variables of interfaces and assign it to the object of the class like A is class and B is interface we can create interface object like B obj= new A();
+
+-Learned about the garbage collector in C#
+
+- Destructor in Class
+
+----------------------------------------------------------------------------------------- 17 Oct 2023---------------------------------------------------------------------------
+
+-Learned about the empty strings, @, null vs unassigned
+
+=escape sequence how to print string wiht "sahik" using \ character at starting and end of the string
+
+-try-catch bloc32k 
+
+-Exception handling
+
+
+----------------------------------------------------------------------------------------- 18 Oct 2023---------------------------------------------------------------------------
+
+-try catch throw and where to throw error from where4
+
+-assignment-> input with the template with try catch block
+
+-learned about the templates
+
+-string str = "123";
+int num;
+bool success = int.TryParse(str, out num);
+
+
+
+
+----------------------------------------------------------------------------------------- 19 Oct 2023---------------------------------------------------------------------------
+
+In theoretical terms, the size of a class is determined by the combined size of its data members (fields), including any potential overhead due to object alignment and memory padding. The size of reference types like classes in C# can vary depending on various factors, and it's often not straightforward to calculate precisely.
+
+Here are some theoretical considerations:
+
+Data Members: The size of a class is primarily influenced by the size of its data members. For example, if your class contains fields of various data types, each of these fields contributes to the overall size. The size of standard data types like int, char, and double is well-defined.
+
+Object Overhead: Each object in C# carries some overhead due to internal data structures and bookkeeping. This overhead typically includes a reference to the object's type information (method tables and type objects) and any synchronization-related data (for multi-threading scenarios). This overhead is typically around 8 bytes on a 32-bit system and 12-16 bytes on a 64-bit system.
+
+Memory Padding: To ensure efficient memory access and alignment, the .NET runtime may add padding bytes between fields. This padding is intended to align fields with memory addresses that are multiples of the size of the data type, and it can vary depending on the platform and runtime settings.
+
+Reference Type Size: If your class contains reference types (other objects), the size of those references is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system.
+
+To calculate the theoretical size of a class, you would need to sum the sizes of all its data members, accounting for object overhead, memory padding, and reference sizes. Keep in mind that this theoretical calculation might not always match the actual size in memory due to the complexities introduced by the .NET runtime, and it may also vary based on the runtime and platform.
+
+If you need to measure the actual size of a class in practice, you can use memory profiling tools and techniques, such as the System.GC.GetTotalMemory method to estimate the memory consumption of objects or specialized memory profiling tools that provide more accurate measurements.
+
+
+
+
+

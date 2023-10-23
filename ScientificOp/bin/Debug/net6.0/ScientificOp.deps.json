@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ScientificOp/1.0.0": {
+        "dependencies": {
+          "ArithmeticOp": "1.0.0"
+        },
+        "runtime": {
+          "ScientificOp.dll": {}
+        }
+      },
+      "ArithmeticOp/1.0.0": {
+        "runtime": {
+          "ArithmeticOp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ScientificOp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ArithmeticOp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
