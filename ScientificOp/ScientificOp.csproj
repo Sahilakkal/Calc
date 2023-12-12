@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ArithmeticOp\ArithmeticOp.csproj" />
-    <ProjectReference Include="..\Calculator\Calculator.csproj" />
   </ItemGroup>
 
 </Project>

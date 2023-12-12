@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/ArithmeticOp.dll": {}
         }
+      },
+      "ScientificOp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ArithmeticOp": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ScientificOp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ScientificOp.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../ArithmeticOp/ArithmeticOp.csproj",
       "msbuildProject": "../ArithmeticOp/ArithmeticOp.csproj"
+    },
+    "ScientificOp/1.0.0": {
+      "type": "project",
+      "path": "../ScientificOp/ScientificOp.csproj",
+      "msbuildProject": "../ScientificOp/ScientificOp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ArithmeticOp >= 1.0.0"
+      "ArithmeticOp >= 1.0.0",
+      "ScientificOp >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -55,6 +74,9 @@
           "projectReferences": {
             "D:\\Calculator\\ArithmeticOp\\ArithmeticOp.csproj": {
               "projectPath": "D:\\Calculator\\ArithmeticOp\\ArithmeticOp.csproj"
+            },
+            "D:\\Calculator\\ScientificOp\\ScientificOp.csproj": {
+              "projectPath": "D:\\Calculator\\ScientificOp\\ScientificOp.csproj"
             }
           }
         }

@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/ArithmeticOp.dll": {}
         }
-      },
-      "Calculator/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ArithmeticOp": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Calculator.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Calculator.dll": {}
-        }
       }
     }
   },
@@ -32,17 +19,11 @@
       "type": "project",
       "path": "../ArithmeticOp/ArithmeticOp.csproj",
       "msbuildProject": "../ArithmeticOp/ArithmeticOp.csproj"
-    },
-    "Calculator/1.0.0": {
-      "type": "project",
-      "path": "../Calculator/Calculator.csproj",
-      "msbuildProject": "../Calculator/Calculator.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ArithmeticOp >= 1.0.0",
-      "Calculator >= 1.0.0"
+      "ArithmeticOp >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -74,9 +55,6 @@
           "projectReferences": {
             "D:\\Calculator\\ArithmeticOp\\ArithmeticOp.csproj": {
               "projectPath": "D:\\Calculator\\ArithmeticOp\\ArithmeticOp.csproj"
-            },
-            "D:\\Calculator\\Calculator\\Calculator.csproj": {
-              "projectPath": "D:\\Calculator\\Calculator\\Calculator.csproj"
             }
           }
         }

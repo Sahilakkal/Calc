@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Calculator/1.0.0": {
         "dependencies": {
-          "ArithmeticOp": "1.0.0"
+          "ArithmeticOp": "1.0.0",
+          "ScientificOp": "1.0.0"
         },
         "runtime": {
           "Calculator.dll": {}
@@ -17,6 +18,14 @@
       "ArithmeticOp/1.0.0": {
         "runtime": {
           "ArithmeticOp.dll": {}
+        }
+      },
+      "ScientificOp/1.0.0": {
+        "dependencies": {
+          "ArithmeticOp": "1.0.0"
+        },
+        "runtime": {
+          "ScientificOp.dll": {}
         }
       }
     }
@@ -28,6 +37,11 @@
       "sha512": ""
     },
     "ArithmeticOp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ScientificOp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
