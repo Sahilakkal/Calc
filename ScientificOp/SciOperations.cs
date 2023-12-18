@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Power
 {
     public class PowerOperations
     {
-        public static double inverse(double x)
-        {
-            if (x != 0)
-            {
-                return 1 / x;
-            }
-            return 0;
 
-        }
+
         static double CalculateTrigonometricValue(double angle, string inputUnit)
         {
             double angleRad;
@@ -26,21 +15,19 @@ namespace Power
                 case "radian":
                     angleRad = angle;
                     break;
-                case "degree":
+                case "DEG":
                     angleRad = angle * 180.0 / Math.PI;
                     break;
                 case "gradian":
                     angleRad = angle * 200 / Math.PI;
                     break;
                 default:
-                    throw new ArgumentException("Invalid unit. Supported units are 'radian', 'degree', and 'gradian'.");
+                    throw new ArgumentException("Invalid unit. Supported units are 'radian', 'DEG', and 'gradian'.");
             }
+
             return angleRad;
-
-
         }
 
-        //Trigno Fn
         public static double Sine(double angle)
         {
             return Math.Sin(angle);
@@ -48,15 +35,8 @@ namespace Power
 
         public static double Cosine(double angle)
         {
-            double epsilon = 1e-10;
-            if (Math.Cos(angle) < epsilon)
-            {
-                return 0;
-            }
-            else
-            {
-                return Math.Cos(angle);
-            }
+            const double epsilon = 1e-10;
+            return Math.Cos(angle) < epsilon ? 0 : Math.Cos(angle);
         }
 
         public static double Tangent(double angle)
@@ -66,24 +46,22 @@ namespace Power
 
         public static double Cot(double angle)
         {
-            return (Math.Cos(angle) / Math.Sin(angle));
+            return Math.Cos(angle) / Math.Sin(angle);
         }
 
         public static double Sec(double angle)
         {
-            return (1 / Math.Cos(angle));
+            return 1 / Math.Cos(angle);
         }
 
         public static double Cosec(double angle)
         {
-            return (1 / Math.Sin(angle));
+            return 1 / Math.Sin(angle);
         }
 
-        //Inverse Trigno Fn
         public static double SineInverse(double angle, string status)
         {
             return CalculateTrigonometricValue(Math.Asin(angle), status);
-
         }
 
         public static double CosineInverse(double angle, string status)
@@ -111,8 +89,6 @@ namespace Power
             return CalculateTrigonometricValue(Math.Asin(1 / angle), status);
         }
 
-        //Hyperbolic Function
-
         public static double SineHyp(double angle)
         {
             return Math.Sinh(angle);
@@ -127,6 +103,7 @@ namespace Power
         {
             return Math.Tanh(angle);
         }
+
         public static double CosecHyp(double angle)
         {
             return 1 / Math.Sinh(angle);
@@ -142,9 +119,6 @@ namespace Power
             return 1 / Math.Tanh(angle);
         }
 
-
-
-        //Function
         public static double AbsoluteFunction(double input)
         {
             return Math.Abs(input);
@@ -154,6 +128,12 @@ namespace Power
         {
             return Math.Floor(input);
         }
+
+        public static double inverse(double x)
+        {
+            return x != 0 ? 1 / x : 0;
+        }
+
         public static double CeilingFunction(double input)
         {
             return Math.Ceiling(input);
@@ -162,8 +142,7 @@ namespace Power
         public static double RandomFunction()
         {
             Random random = new Random();
-            double test = random.NextDouble();
-            return test;
+            return random.NextDouble();
         }
 
         public static double ConvertDegreeToRadians(double angle)
@@ -178,7 +157,7 @@ namespace Power
 
         public static double ConvertGradientToDegree(double angle)
         {
-            return (9 / 10) * angle;
+            return (9 / 10.0) * angle;
         }
 
         public static double ConvertToDMS(double angle)
@@ -193,7 +172,6 @@ namespace Power
             return result;
         }
 
-        //Power Functions
         public static double Exponentiation(double baseValue, double exponent)
         {
             return Math.Pow(baseValue, exponent);
@@ -210,6 +188,7 @@ namespace Power
             {
                 throw new ArgumentException("Invalid input");
             }
+
             return Math.Sqrt(number);
         }
 
@@ -266,16 +245,5 @@ namespace Power
         {
             return string.Format("{0:0.#####e+0}", number);
         }
-
-
-
-
     }
 }
-
-
-
-
-
-
-

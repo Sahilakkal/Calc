@@ -8,217 +8,120 @@ namespace Arithmetic
 {
     public class Arithms
     {
-
-        public static string ScientificNotation(double number, string inputformat)
+        public static string ScientificNotation(double number, string inputFormat)
         {
-            if (inputformat == "F-E")
-
-                return string.Format("{0:0.#####e+0}", number);
-            return number.ToString();
-
+            return inputFormat == "F-E" ? string.Format("{0:0.#####e+0}", number) : number.ToString();
         }
-
-
 
         private static bool IsNumeric(char x)
         {
-            if (x >= 48 && x <= 57)
-                return true;
-            return false;
-
+            return x >= '0' && x <= '9';
         }
 
-        private static bool IsOperator(char x)
+        private static double Calculate(double operand1, double operand2, char op)
         {
-            return x == '+' || x == '-' || x == '*' || x == '/' || x == '^';
-        }
-        private static double Calculate(double a, double b, char op)
-        {
-            switch (op)
+            return op switch
             {
-                case '+': return a + b;
-                case '-': return a - b;
-                case '*': return a * b;
-                case '/': return a / b;
-                case '^': return Math.Pow(a, b);
-                default:
-                    // Console.WriteLine("Invalid operator");
-                    return 0;
-            }
+                '+' => operand1 + operand2,
+                '-' => operand1 - operand2,
+                '*' => operand1 * operand2,
+                '/' => operand1 / operand2,
+                '^' => Math.Pow(operand1, operand2),
+                _ => 0,
+            };
         }
 
-        private static double AdditionAndSubstraction(double a, double b, char op)
+        private static double CalculatePower(double baseValue, double exponent)
         {
-            switch (op)
-            {
-                case '+': return a + b;
-                case '-': return a - b;
-                default:
-                    Console.WriteLine("Invalid operator");
-                    return 0;
-            }
+            return Math.Pow(baseValue, exponent);
         }
 
-        public static double Bodmas(String s, String Notation)
+        public static double Bodmas(string equation, string notation)
         {
-
             double result = 0;
-            double result1 = 0;
-            //  Console.Write("Enter the equation: ");
-            // string equation = Console.ReadLine();
-            start(s);
-            //  Console.WriteLine("Result: " + result);
-            Console.Write($"\n{ScientificNotation(result, Notation)}");
-            return result;
 
-            void start(string equation)
+            char previousOperator = '+';
+            int index = 0;
+            int length = equation.Length;
+
+            while (index < length)
             {
-                char op1 = '+';
-                int length = equation.Length;
-                for (int index = 0; index < equation.Length; index++)
+                double currentOperand = GetNextNumber(equation, ref index);
+
+                bool isMultiplication = false;
+
+                while (index < length && (equation[index] == '/' || equation[index] == '*' || equation[index] == '^'))
                 {
-                    double currentNumber1 = 0;
-                    /* while (index < length && IsNumeric(equation[index]))
-                     {
-                         currentNumber1 = currentNumber1 * 10 + (equation[index] - '0');
-                         index++;
-                     }*/
+                    isMultiplication = true;
 
-                    bool decimalPointEncountered = false;
-                    double decimalMultiplier = 0.1;
+                    char currentOperator = equation[index];
+                    index++;
 
-                    while (index < length && (IsNumeric(equation[index]) || (!decimalPointEncountered && equation[index] == '.')))
+                    double nextOperand = GetNextNumber(equation, ref index);
+
+                    if (currentOperator == '^')
                     {
-                        if (equation[index] == '.')
-                        {
-                            decimalPointEncountered = true;
-                            index++;
-                            continue;
-                        }
-
-                        if (!decimalPointEncountered)
-                        {
-                            currentNumber1 = currentNumber1 * 10 + (equation[index] - '0');
-                        }
-                        else
-                        {
-
-                            currentNumber1 = currentNumber1 + (equation[index] - '0') * decimalMultiplier;
-                            decimalMultiplier *= 0.1;
-                        }
-
-                        index++;
+                        nextOperand = CalculatePower(currentOperand, nextOperand);
+                        result = Calculate(result, nextOperand, previousOperator);
+                        currentOperand = 0;
                     }
-
-
-
-
-
-
-                    bool againMultiply = false;
-                    bool Multiply = false;
-
-
-
-                    while (index < length && (equation[index] == '/' || equation[index] == '*' || equation[index] == '^'))
+                    else
                     {
-                        Multiply = true;
-                        bool NegativeCurrentNumber2 = false;
-                        if (againMultiply)
-                        {
-                            currentNumber1 = result1;
-                        }
-
-                        double currentNumber2 = 0;
-                        char op2 = equation[index];
-                        index++;
-                        if (equation[index] == '-')
-                        {
-                            NegativeCurrentNumber2 = true;
-                            index++;
-                        }
-
-                        /* while (index < length && IsNumeric(equation[index]))
-                         {
-                             currentNumber2 = currentNumber2 * 10 + (equation[index] - '0');
-                             if (NegativeCurrentNumber2)
-                                 currentNumber2 = -currentNumber2;
-                             index++;
-                             againMultiply = true;
-                         }*/
-                        bool decimalPointEncountered1 = false;
-                        double decimalMultiplier1 = 0.1;
-
-                        while (index < length && (IsNumeric(equation[index]) || (!decimalPointEncountered1 && equation[index] == '.')))
-                        {
-                            if (equation[index] == '.')
-                            {
-                                decimalPointEncountered1 = true;
-                                index++;
-                                continue;
-                            }
-
-                            if (!decimalPointEncountered1)
-                            {
-                                currentNumber2 = currentNumber2 * 10 + (equation[index] - '0');
-                            }
-                            else
-                            {
-
-                                currentNumber2 = currentNumber2 + (equation[index] - '0') * decimalMultiplier1;
-                                decimalMultiplier *= 0.1;
-                            }
-
-                            index++;
-                        }
-
-
-
-
-                        if (index < length && equation[index] == '^')
-                        {
-                            while (index < length && equation[index] == '^')
-                            {
-
-                                int power = equation[index + 1] - 48;
-
-                                currentNumber2 = Math.Pow(currentNumber2, power);
-                                result1 = Calculate(currentNumber1, currentNumber2, op2);
-                                index = index + 2;
-                            }
-                        }
-
-                        else if (index == length || (index < length && equation[index] != '^'))
-                        {
-                            result1 = Calculate(currentNumber1, currentNumber2, op2);
-                        }
-
+                        double tempResult = Calculate(currentOperand, nextOperand, currentOperator);
+                        result = Calculate(result, tempResult, previousOperator);
+                        currentOperand = 0;
                     }
-
-                    result = Calculate(result, result1, op1);
-                    result1 = 0;
-
-                    if ((index < length && (equation[index] == '+' || equation[index] == '-') && !Multiply) || (index == length && !Multiply))
-                    {
-                        result = Calculate(result, currentNumber1, op1);
-                        if (index != length)
-                        {
-                            op1 = equation[index];
-                        }
-                    }
-
-                    if (index != length)
-                    {
-                        op1 = equation[index];
-                    }
-
                 }
+
+                result = Calculate(result, currentOperand, previousOperator);
+
+                if (index < length && (equation[index] == '+' || equation[index] == '-') && !isMultiplication)
+                {
+                    previousOperator = equation[index];
+                }
+
+                if (index != length)
+                {
+                    previousOperator = equation[index];
+                }
+
+                index++;
             }
 
+            Console.Write($"\n{ScientificNotation(result, notation)}");
+            return result;
         }
 
+        private static double GetNextNumber(string equation, ref int index)
+        {
+            double currentNumber = 0;
+            bool decimalPointEncountered = false;
+            double decimalMultiplier = 0.1;
 
+            while (index < equation.Length && (IsNumeric(equation[index]) || (!decimalPointEncountered && equation[index] == '.')))
+            {
+                if (equation[index] == '.')
+                {
+                    decimalPointEncountered = true;
+                    index++;
+                    continue;
+                }
 
+                if (!decimalPointEncountered)
+                {
+                    currentNumber = currentNumber * 10 + (equation[index] - '0');
+                }
+                else
+                {
+                    currentNumber += (equation[index] - '0') * decimalMultiplier;
+                    decimalMultiplier *= 0.1;
+                }
+
+                index++;
+            }
+
+            return currentNumber;
+        }
 
         static int Precedence(char operate)
         {
@@ -361,7 +264,7 @@ namespace Arithmetic
                         operators[operatorIndex++] = '*';
                     }
                 }
-                else if (IsOperator(expression[index]))
+                else if (IsOperators(expression[index]))
                 {
                     while (operatorIndex > 0 && Precedence(operators[operatorIndex - 1]) >= Precedence(expression[index]))
                     {
