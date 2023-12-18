@@ -14,16 +14,6 @@ namespace Scientific_Calculator1
         public static void Main()
         {
             Console.SetCursorPosition(0, 10);
-
-
-           // Keymapping();
-
-            //keyMapping
-           
-
-
-
-            
             Console.SetCursorPosition(0, 0);
             Console.WriteLine();
             Console.WriteLine($"{varDeg} | {varEF} | {varExtra}");
@@ -38,7 +28,6 @@ namespace Scientific_Calculator1
             double result = 0;
             bool restart = false;
             string memoryValue = string.Empty;
-            // char op = '+';
             Console.Write(current);
             bool exOp = false;
             double number2 = 0;
@@ -48,12 +37,9 @@ namespace Scientific_Calculator1
 
             do
             {
-                
                 keyInfo = Console.ReadKey(true);
 
                 ch = keyInfo.KeyChar;
-
-
 
                 if (keyInfo.Key == ConsoleKey.Delete)
                 {
@@ -67,13 +53,6 @@ namespace Scientific_Calculator1
                         number.Length -= 1;
                         Console.Write("\b \b");
                     }
-                    /* if (temp.Length > 0 && exOp)
-                     {
-                         temp.Length -= 1;
-                         Console.Write("\b \b");
-                     }*/
-
-
                 }
                 else if (keyInfo.Key == ConsoleKey.E && keyInfo.Modifiers == ConsoleModifiers.Control)
                 {
@@ -110,17 +89,15 @@ namespace Scientific_Calculator1
                 else if (keyInfo.Key == ConsoleKey.A && keyInfo.Modifiers == ConsoleModifiers.Control)
                 {
                     inputExpression.Clear();
-                    Console.Clear());;
+                    Console.Clear()); ;
                     Environment.Exit(0);
                 }
                 else if (keyInfo.Key == ConsoleKey.Z && keyInfo.Modifiers == ConsoleModifiers.Control)
                 {
                     exOp = false;
                     temp.Clear();
-                    number1 = 0;      ////
+                    number1 = 0;
                     number2 = 0;
-
-
 
                     inputExpression.Clear();
                     number.Clear();
@@ -208,21 +185,6 @@ namespace Scientific_Calculator1
                 }
                 else if (IsValidInputKey(keyInfo.KeyChar))
                 {
-                    /* if (exOp && (char.IsDigit(ch) || ch == '.') && !IsOperatorKey(ch))
-                     {
-                         number1 = result;
-                         if (temp.Length == 0)
-                         {
-                             ClearCurrentConsoleLine();
-                         }
-
-                         temp.Append(ch);
-
-                         Console.Write(ch);
-                         number2 = Convert.ToDouble(temp.ToString());
-                         //Calculation();
-                     }*/
-
                     if (IsOperatorKey(ch) || IsBracket(ch))
                     {
                         if (exOp && number.Length != 0)      // check
@@ -231,8 +193,6 @@ namespace Scientific_Calculator1
                             current = CallSpecialCalculation(opCh, number1, number2);
                             Console.Write($"\n{current}");
                             result = current;
-
-
                             restart = false;
                             if (current == 0)
                                 calculate.Append(number).Append(ch);
@@ -256,8 +216,6 @@ namespace Scientific_Calculator1
 
                             inputExpression.Append(number.ToString());
                         }
-
-
 
                         if (inputExpression.Length != 0 && inputExpression[inputExpression.Length - 1] == '=')
                         {
@@ -373,7 +331,6 @@ namespace Scientific_Calculator1
 
                     }
 
-
                     else if (ch == '=' && !exOp)
                     {
 
@@ -448,9 +405,9 @@ namespace Scientific_Calculator1
                         ClearConsoleExceptFirstTwoLine();
                         number.Insert(0, "sin(").Append(")");
                         Console.Write(s.ToString() + number.ToString());
-                        current = Math.Round(PowerOperations.Sine(CalculateTrigonometricValue(result, varDeg)),10);
+                        current = Math.Round(PowerOperations.Sine(CalculateTrigonometricValue(result, varDeg)), 10);
                         break;
-                   
+
 
                     case 'c':
                         ClearConsoleExceptFirstTwoLine();
@@ -463,7 +420,8 @@ namespace Scientific_Calculator1
                         number.Insert(0, "tan(").Append(")");
                         Console.Write(s.ToString() + number.ToString());
 
-                        if (result==90 && varDeg== "DEG") {
+                        if (result == 90 && varDeg == "DEG")
+                        {
                             Console.WriteLine(" \n Invalid");
                             Thread.Sleep(1000);
                             exOp = false;
@@ -481,7 +439,7 @@ namespace Scientific_Calculator1
                         }
                         else
                         {
-                            current = Math.Round(PowerOperations.Tangent(CalculateTrigonometricValue(result, varDeg)),10);
+                            current = Math.Round(PowerOperations.Tangent(CalculateTrigonometricValue(result, varDeg)), 10);
 
                         }
                         break;
@@ -775,11 +733,7 @@ namespace Scientific_Calculator1
 
                 }
                 Console.Write($"\n{current}");
-                //  Console.Write(inputExpression);
-                // number.Clear();
                 result = current;
-                //  number= current;
-
             }
 
             void OtherFunction(char ch)
@@ -817,12 +771,7 @@ namespace Scientific_Calculator1
 
                 }
                 Console.Write($"\n{current}");
-
-                // result = current;
-
             }
-
-
             double CallSpecialCalculation(char ch, double num1, double num2)
             {
                 double output = 0;
@@ -845,11 +794,7 @@ namespace Scientific_Calculator1
                 }
                 return output;
             }
-
-
         }
-
-
         public static void ClearCurrentConsoleLine()
         {
             int currentLineCursor = Console.CursorTop;
@@ -882,8 +827,6 @@ namespace Scientific_Calculator1
             // Restore the original cursor position
             Console.SetCursorPosition(originalLeft, originalTop);
         }
-
-
         public static double CalculateTrigonometricValue(double angle, string inputUnit)
         {
             double angleRad;
@@ -904,7 +847,6 @@ namespace Scientific_Calculator1
             }
             return angleRad;
         }
-
         public static void KeyMapping()
         {
             KeyMapping1("Radian   -  ctrl+P", "DEG    -  ctrl+Q", "Gradian   - ctrl+R   M+    - ctrl+Y     MR      -  ctrl+B  ", 12);

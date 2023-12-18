@@ -4,8 +4,6 @@ namespace Power
 {
     public class PowerOperations
     {
-
-
         static double CalculateTrigonometricValue(double angle, string inputUnit)
         {
             double angleRad;
